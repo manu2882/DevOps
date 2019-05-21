@@ -1,23 +1,29 @@
 pipeline {
-    agent any
-            stages {
-                    stage ('one') {
-                            steps {
-                                    echo 'Hi, this is Ankur and my first pipeline'
-                             }
-                   }
-                   stage ('two) {
-                            steps {
-                                    input('Do you want to proceed?')
+    agen any
+        stages {
+                stage ('one') {
+                        steps {
+                                echo 'Hi, this is first pipeline from me'
+                               }
                               }
-                   }
-                   stage ('three') {
-                              when {
-                                      not {
-                                            branch "master"
+                              
+                stage ('two') {
+                        steps {
+                                input('Do you want to proceed?')
+                              }
+                              }
+                              
+                stage ('three') {
+                        when    {
+                                  not {
+                                        branch "master"
+                                      }
+                                      
+                                  step {
+                                        echo "Hello"
                                        }
-                               step {
-                                       echo "Hello"
                                 }
-                   }
+                                }
+                }
+          }
                                         
